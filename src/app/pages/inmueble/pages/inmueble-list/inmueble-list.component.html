@@ -1,0 +1,31 @@
+<app-spinner *ngIf="loading$ | async"> </app-spinner>
+
+<!-- COMANDO PARA LLAMAR LA DATA EN FORMATO JSON -->
+<!-- <pre>{{inmuebles$ | async | json}}</pre> -->
+
+<section class="container">
+  <ul class="cards" *ngIf="inmuebles$ | async as inmuebles">
+      <li class="cards__item" *ngFor="let inmueble of inmuebles">
+        <mat-card class="example-card">
+              <mat-card-header>
+                  <mat-card-title>{{inmueble.nombre}}</mat-card-title>
+                  <mat-card-subtitle>Precio ${{inmueble.precio}}</mat-card-subtitle>
+              </mat-card-header>
+
+              <img mat-card-image src="{{inmueble.foto ? inmueble.foto : pictureDefault}}"
+              alt="{{inmueble.nombre}}">
+
+              <mat-card-content>
+                <p>
+                  {{inmueble.direccion}}
+                </p>
+              </mat-card-content>
+
+              <mat-card-actions>
+                  <button mat-button>Ver</button>
+                  <button mat-button>Comprar</button>
+              </mat-card-actions>
+          </mat-card>
+      </li>
+  </ul>
+</section>

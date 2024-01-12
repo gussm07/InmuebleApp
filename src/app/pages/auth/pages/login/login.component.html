@@ -1,0 +1,22 @@
+<app-spinner *ngIf="loading$ | async"></app-spinner>
+
+<section>
+  <mat-card>
+    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="loginUsuario(f)">
+      <mat-form-field>
+        <mat-label>Ingrese usuario</mat-label>
+        <input type="text" matInput placeholder="Username" name="username" ngModel required>
+        <mat-error>Ingrese un usuario</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Ingrese contraseña</mat-label>
+        <input type="password" matInput placeholder="Contraseña" name="password" ngModel required>
+        <mat-error>Ingrese una contraseña</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Iniciar Sesión</button>
+
+    </form>
+  </mat-card>
+</section>
